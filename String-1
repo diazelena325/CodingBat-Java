@@ -429,9 +429,46 @@ public String seeColor(String str) {
   
 }
 //--------------------------------------------------------------------
+frontAgain 
+Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with "edited".
 
+frontAgain("edited") → true
+frontAgain("edit") → false
+frontAgain("ed") → true
+
+public boolean frontAgain(String str) {
+ 
+  if(str.length()>1){
+  String front = str.substring(0,2);
+  String back = str.substring(str.length()-2);
+  return(front.equals(back));
+  }
+  else
+  return false;
+}
 
 //--------------------------------------------------------------------
+minCat 
+Given two strings, append them together (known as "concatenation") and return the result. However, if the strings are different lengths, omit chars from the longer string so it is the same length as the shorter string. So "Hello" and "Hi" yield "loHi". The strings may be any length.
+
+minCat("Hello", "Hi") → "loHi"
+minCat("Hello", "java") → "ellojava"
+minCat("java", "Hello") → "javaello"
+
+public String minCat(String a, String b) {
+  int aLength = a.length();
+  int bLength = b.length();
+  String aWord=a;
+  String bWord=b;
+  
+  if(aLength > bLength){
+  aWord = a.substring(a.length() - bLength);  
+  }
+  else if (bLength> aLength){
+     bWord = b.substring(b.length() - aLength);
+  }
+  return(aWord+bWord);
+}
 
 
 //--------------------------------------------------------------------
